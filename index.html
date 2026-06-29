@@ -1,74 +1,79 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Ghost Internet — Evalúa y mejora tu seguridad digital: análisis de contraseñas, verificación de correos, perfil de riesgo y estadísticas de brechas." />
   <title>Ghost Internet — Inicio</title>
-  <link rel="stylesheet" href="../CSS/Index.css" />
+
+  <link rel="canonical" href="https://irvin-eng.github.io/Ricarte-Proyecto/" />
+  <meta property="og:title" content="Ghost Internet — Inicio" />
+  <meta property="og:description" content="Analiza y fortalece tu seguridad digital con herramientas gratuitas." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://irvin-eng.github.io/Ricarte-Proyecto/" />
+  <meta property="og:image" content="svg/escudo.svg" />
+
+  <link rel="stylesheet" href="css/index.css" />
 </head>
 <body>
+  <a class="skip-link" href="#main">Saltar al contenido</a>
 
   <!-- Fondos decorativos -->
   <div class="fondo-grilla" aria-hidden="true"></div>
   <div class="fondo-brillo" aria-hidden="true"></div>
 
   <!-- ===== NAVEGACIÓN ===== -->
-  <nav class="barra-nav">
-  <div class="contenido-nav">
+  <nav class="barra-nav" role="navigation" aria-label="Menú principal">
+    <div class="contenido-nav">
 
-    <a href="index.html" class="logo" aria-label="Ghost Internet - Ir al inicio">
-      <div class="logo__contenedor-icono">
-        <img src="../SVG/escudo.svg" alt="" class="logo__icono" aria-hidden="true" />
+      <a href="index.html" class="logo" aria-label="Ghost Internet - Ir al inicio">
+        <div class="logo__contenedor-icono">
+          <img src="svg/escudo.svg" alt="Escudo Ghost Internet" class="logo__icono" />
+        </div>
+        <span class="logo__texto">
+          GHOST<span class="logo__guion">_</span>NET
+        </span>
+      </a>
+
+      <ul class="enlaces-nav">
+
+        <li class="enlaces-nav__elemento enlaces-nav__elemento--activo">
+          <a href="index.html" aria-current="page">Inicio</a>
+        </li>
+
+        <li class="enlaces-nav__elemento menu-desplegable">
+          <button class="menu-desplegable__toggle" aria-expanded="false" aria-controls="submenu-herramientas">
+            <span>Herramientas</span>
+            <img src="svg/flecha-herramientas.svg" alt="" class="icono-flecha" aria-hidden="true" />
+          </button>
+
+          <ul id="submenu-herramientas" class="submenu" role="menu" aria-hidden="true">
+            <li><a role="menuitem" href="evaluacion_contrasena.html">Contraseñas</a></li>
+            <li><a role="menuitem" href="verificar_correo.html">Correos</a></li>
+            <li><a role="menuitem" href="perfil_de_riesgo.html">Perfil de Riesgo</a></li>
+          </ul>
+        </li>
+
+        <li class="enlaces-nav__elemento">
+          <a href="estadisticas.html">Estadísticas</a>
+        </li>
+
+        <li class="enlaces-nav__elemento">
+          <a href="simulador.html">Simulador</a>
+        </li>
+
+      </ul>
+
+      <div class="zona-auth">
+        <button class="boton-borde" type="button">Iniciar sesión</button>
+        <a href="registrarse.html" class="boton-primario">Registrarse</a>
       </div>
-      <span class="logo__texto">
-        GHOST<span class="logo__guion">_</span>NET
-      </span>
-    </a>
 
-    <ul class="enlaces-nav" role="navigation" aria-label="Menú principal">
-
-      <li class="enlaces-nav__elemento enlaces-nav__elemento--activo">
-        <a href="index.html">Inicio</a>
-      </li>
-
-      <li class="enlaces-nav__elemento menu-desplegable">
-        <a href="#" class="menu-desplegable__toggle">
-          <span>Herramientas</span>
-          <img
-            src="../SVG/flecha-herramientas.svg"
-            alt=""
-            class="icono-flecha"
-            aria-hidden="true"
-          />
-        </a>
-
-        <ul class="submenu">
-          <li><a href="EvaluacionContraseña.html">Contraseñas</a></li>
-          <li><a href="VerificarCorreo.html">Correos</a></li>
-          <li><a href="PerfildeRiesgo.html">Perfil de Riesgo</a></li>
-        </ul>
-      </li>
-
-      <li class="enlaces-nav__elemento">
-        <a href="Estadisticas.html">Estadísticas</a>
-      </li>
-
-      <li class="enlaces-nav__elemento">
-        <a href="simulador.html">Simulador</a>
-      </li>
-
-    </ul>
-
-    <div class="zona-auth">
-      <button class="boton-borde" type="button">Iniciar sesión</button>
-      <a href="Registrarse.html" class="boton-primario" style="text-decoration: none;">Registrarse</a>
     </div>
-
-  </div>
-</nav>
+  </nav>
 
   <!-- ===== CONTENIDO PRINCIPAL ===== -->
-  <main class="contenido-principal">
+  <main id="main" class="contenido-principal">
 
     <!-- HÉROE -->
     <section class="seccion-heroe">
@@ -88,14 +93,9 @@
         <div class="botones-heroe">
           <a href="#modulos" class="boton-principal-heroe">
             Analizar ahora
-            <img
-              src="../SVG/flecha.svg"
-              alt=""
-              class="boton-principal-heroe__icono"
-              aria-hidden="true"
-            />
+            <img src="svg/flecha.svg" alt="" class="boton-principal-heroe__icono" aria-hidden="true" />
           </a>
-          <a href="Registrarse.html" class="boton-secundario-heroe">Crear cuenta</a>
+          <a href="registrarse.html" class="boton-secundario-heroe">Crear cuenta</a>
         </div>
       </div>
 
@@ -158,95 +158,63 @@
     <!-- MÓDULOS -->
     <section class="seccion" id="modulos">
       <div class="encabezado-seccion">
-        <h2 class="encabezado-seccion__titulo">
-          Todo lo que necesitas para protegerte
-        </h2>
+        <h2 class="encabezado-seccion__titulo">Todo lo que necesitas para protegerte</h2>
       </div>
 
       <div class="grilla-modulos">
 
         <article class="tarjeta-modulo tarjeta-modulo--verde">
           <div class="tarjeta-modulo__contenedor-icono tarjeta-modulo__contenedor-icono--verde">
-            <img src="../SVG/candado.svg" alt="Candado" class="tarjeta-modulo__icono" />
+            <img src="svg/candado.svg" alt="Candado" class="tarjeta-modulo__icono" />
           </div>
           <h3 class="tarjeta-modulo__titulo">Seguridad de Contraseñas</h3>
-          <p class="tarjeta-modulo__descripcion">
-            Evalúa la fortaleza de tus contraseñas, detecta vulnerabilidades
-            y genera claves seguras con análisis en tiempo real.
-          </p>
-          <a href="EvaluacionContraseña.html" class="tarjeta-modulo__enlace tarjeta-modulo__enlace--verde">
-            Explorar →
-          </a>
+          <p class="tarjeta-modulo__descripcion">Evalúa la fortaleza de tus contraseñas, detecta vulnerabilidades y genera claves seguras con análisis en tiempo real.</p>
+          <a href="evaluacion_contrasena.html" class="tarjeta-modulo__enlace tarjeta-modulo__enlace--verde">Explorar →</a>
         </article>
 
         <article class="tarjeta-modulo tarjeta-modulo--cyan">
           <div class="tarjeta-modulo__contenedor-icono tarjeta-modulo__contenedor-icono--cyan">
-            <img src="../SVG/correo.svg" alt="Correo" class="tarjeta-modulo__icono" />
+            <img src="svg/correo.svg" alt="Correo" class="tarjeta-modulo__icono" />
           </div>
           <h3 class="tarjeta-modulo__titulo">Seguridad de Correo</h3>
-          <p class="tarjeta-modulo__descripcion">
-            Verifica si tu correo aparece en brechas conocidas y descubre
-            qué servicios han comprometido tus datos.
-          </p>
-          <a href="VerificarCorreo.html" class="tarjeta-modulo__enlace tarjeta-modulo__enlace--cyan">
-            Explorar →
-          </a>
+          <p class="tarjeta-modulo__descripcion">Verifica si tu correo aparece en brechas conocidas y descubre qué servicios han comprometido tus datos.</p>
+          <a href="verificar_correo.html" class="tarjeta-modulo__enlace tarjeta-modulo__enlace--cyan">Explorar →</a>
         </article>
 
         <article class="tarjeta-modulo tarjeta-modulo--rosa">
           <div class="tarjeta-modulo__contenedor-icono tarjeta-modulo__contenedor-icono--rosa">
-            <img src="../SVG/ojo.svg" alt="Ojo" class="tarjeta-modulo__icono" />
+            <img src="svg/ojo.svg" alt="Ojo" class="tarjeta-modulo__icono" />
           </div>
           <h3 class="tarjeta-modulo__titulo">Perfil de Riesgo Digital</h3>
-          <p class="tarjeta-modulo__descripcion">
-            Obtén una puntuación global de riesgo basada en tus hábitos
-            digitales, uso de 2FA y prácticas de seguridad.
-          </p>
-          <a href="PerfildeRiesgo.html" class="tarjeta-modulo__enlace tarjeta-modulo__enlace--rosa">
-            Explorar →
-          </a>
+          <p class="tarjeta-modulo__descripcion">Obtén una puntuación global de riesgo basada en tus hábitos digitales, uso de 2FA y prácticas de seguridad.</p>
+          <a href="perfil_de_riesgo.html" class="tarjeta-modulo__enlace tarjeta-modulo__enlace--rosa">Explorar →</a>
         </article>
 
         <article class="tarjeta-modulo tarjeta-modulo--naranja">
           <div class="tarjeta-modulo__contenedor-icono tarjeta-modulo__contenedor-icono--naranja">
-            <img src="../SVG/barras.svg" alt="Barras estadísticas" class="tarjeta-modulo__icono" />
+            <img src="svg/barras.svg" alt="Barras estadísticas" class="tarjeta-modulo__icono" />
           </div>
           <h3 class="tarjeta-modulo__titulo">Centro de Estadísticas</h3>
-          <p class="tarjeta-modulo__descripcion">
-            Visualiza datos globales sobre filtraciones, tendencias de ataques
-            y las contraseñas más vulnerables del mundo.
-          </p>
-          <a href="Estadisticas.html" class="tarjeta-modulo__enlace tarjeta-modulo__enlace--naranja">
-            Explorar →
-          </a>
+          <p class="tarjeta-modulo__descripcion">Visualiza datos globales sobre filtraciones, tendencias de ataques y las contraseñas más vulnerables del mundo.</p>
+          <a href="estadisticas.html" class="tarjeta-modulo__enlace tarjeta-modulo__enlace--naranja">Explorar →</a>
         </article>
 
         <article class="tarjeta-modulo tarjeta-modulo--rojo">
           <div class="tarjeta-modulo__contenedor-icono tarjeta-modulo__contenedor-icono--rojo">
-            <img src="../SVG/rayo.svg" alt="Rayo" class="tarjeta-modulo__icono" />
+            <img src="svg/rayo.svg" alt="Rayo" class="tarjeta-modulo__icono" />
           </div>
           <h3 class="tarjeta-modulo__titulo">Simulador de Riesgos</h3>
-          <p class="tarjeta-modulo__descripcion">
-            Simula ataques de fuerza bruta, phishing y credential stuffing
-            en un entorno de red ficticio interactivo.
-          </p>
-          <a href="simulador.html" class="tarjeta-modulo__enlace tarjeta-modulo__enlace--rojo">
-            Explorar →
-          </a>
+          <p class="tarjeta-modulo__descripcion">Simula ataques de fuerza bruta, phishing y credential stuffing en un entorno de red ficticio interactivo.</p>
+          <a href="simulador.html" class="tarjeta-modulo__enlace tarjeta-modulo__enlace--rojo">Explorar →</a>
         </article>
 
         <article class="tarjeta-modulo tarjeta-modulo--cyan">
           <div class="tarjeta-modulo__contenedor-icono tarjeta-modulo__contenedor-icono--cyan">
-            <img src="../SVG/documento.svg" alt="Documento" class="tarjeta-modulo__icono" />
+            <img src="svg/documento.svg" alt="Documento" class="tarjeta-modulo__icono" />
           </div>
           <h3 class="tarjeta-modulo__titulo">Reportes e Historial</h3>
-          <p class="tarjeta-modulo__descripcion">
-            Genera reportes detallados de tus análisis, visualiza la evolución
-            de tu seguridad y descarga informes personalizados.
-          </p>
-          <a href="#" class="tarjeta-modulo__enlace tarjeta-modulo__enlace--cyan">
-            Explorar →
-          </a>
+          <p class="tarjeta-modulo__descripcion">Genera reportes detallados de tus análisis, visualiza la evolución de tu seguridad y descarga informes personalizados.</p>
+          <a href="#" class="tarjeta-modulo__enlace tarjeta-modulo__enlace--cyan">Explorar →</a>
         </article>
 
       </div>
@@ -262,26 +230,17 @@
           <div class="paso">
             <div class="paso__numero" aria-hidden="true">01</div>
             <h3 class="paso__titulo">Analiza</h3>
-            <p class="paso__descripcion">
-              Ingresa tus contraseñas o correos para un análisis profundo
-              de vulnerabilidades en segundos.
-            </p>
+            <p class="paso__descripcion">Ingresa tus contraseñas o correos para un análisis profundo de vulnerabilidades en segundos.</p>
           </div>
           <div class="paso">
             <div class="paso__numero" aria-hidden="true">02</div>
             <h3 class="paso__titulo">Evalúa</h3>
-            <p class="paso__descripcion">
-              Obtén una puntuación de riesgo personalizada y visualiza
-              tu exposición digital en tiempo real.
-            </p>
+            <p class="paso__descripcion">Obtén una puntuación de riesgo personalizada y visualiza tu exposición digital en tiempo real.</p>
           </div>
           <div class="paso">
             <div class="paso__numero" aria-hidden="true">03</div>
             <h3 class="paso__titulo">Protege</h3>
-            <p class="paso__descripcion">
-              Aplica las recomendaciones específicas para reducir tu huella
-              digital y fortalecer tu seguridad.
-            </p>
+            <p class="paso__descripcion">Aplica las recomendaciones específicas para reducir tu huella digital y fortalecer tu seguridad.</p>
           </div>
         </div>
       </section>
@@ -291,16 +250,13 @@
     <section class="seccion-accion">
       <div class="caja-accion">
         <div class="caja-accion__contenedor-icono">
-          <img src="../SVG/globo.svg" alt="" class="caja-accion__icono" aria-hidden="true" />
+          <img src="svg/globo.svg" alt="Globo" class="caja-accion__icono" aria-hidden="true" />
         </div>
         <h2 class="caja-accion__titulo">Tu seguridad digital comienza aquí</h2>
-        <p class="caja-accion__descripcion">
-          Únete a miles de usuarios que ya protegen su identidad digital.
-          Análisis gratuito, sin registro requerido.
-        </p>
+        <p class="caja-accion__descripcion">Únete a miles de usuarios que ya protegen su identidad digital. Análisis gratuito, sin registro requerido.</p>
         <div class="caja-accion__botones">
           <a href="#modulos" class="boton-principal-heroe">Analizar ahora</a>
-          <a href="Registrarse.html" class="boton-secundario-heroe">Crear cuenta</a>
+          <a href="registrarse.html" class="boton-secundario-heroe">Crear cuenta</a>
         </div>
       </div>
     </section>
@@ -312,29 +268,24 @@
     <div class="contenido-pie">
       <a href="index.html" class="logo" aria-label="Ghost Internet - inicio">
         <div class="logo__contenedor-icono">
-          <img src="../SVG/escudo.svg" alt="" class="logo__icono" aria-hidden="true" />
+          <img src="svg/escudo.svg" alt="Escudo Ghost Internet" class="logo__icono" aria-hidden="true" />
         </div>
-        <span class="logo__texto logo__texto--pie">
-          GHOST<span class="logo__guion">_</span>NET
-        </span>
+        <span class="logo__texto logo__texto--pie">GHOST<span class="logo__guion">_</span>NET</span>
         <span class="logo__version">v2.4.1</span>
       </a>
 
       <nav class="enlaces-pie" aria-label="Mapa del sitio">
         <a href="index.html">Inicio</a>
-        <a href="EvaluacionContraseña.html">Contraseñas</a>
-        <a href="VerificarCorreo.html">Correos</a>
-        <a href="Estadisticas.html">Estadísticas</a>
+        <a href="evaluacion_contrasena.html">Contraseñas</a>
+        <a href="verificar_correo.html">Correos</a>
+        <a href="estadisticas.html">Estadísticas</a>
         <a href="simulador.html">Simulador</a>
       </nav>
 
-      <small class="derechos-reservados">
-        © 2026 Ghost Internet — Solo fines educativos
-      </small>
+      <small class="derechos-reservados">© 2026 Ghost Internet — Solo fines educativos</small>
     </div>
   </footer>
 
-  <script src="../JS/Index.JS" defer></script>
-
+  <script src="js/index.js" defer></script>
 </body>
 </html>
