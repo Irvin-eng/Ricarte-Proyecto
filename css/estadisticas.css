@@ -1,0 +1,10 @@
+/* css/estadisticas.css (movido y limpiado) */
+@import url('./compartido.css');
+
+.pagina{
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 48px 24px 64px;
+}
+
+/* El resto del css especifico ya fue movido a css/estadisticas.css original si es necesario */

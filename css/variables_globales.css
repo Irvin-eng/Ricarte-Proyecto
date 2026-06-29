@@ -1,0 +1,30 @@
+/* variables_globales.css: variables estandarizadas y correcciones */
+:root{
+  --fuente-principal: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  --fuente-codigo: 'Courier New', monospace;
+
+  --color-fondo: #060f14;
+  --color-texto: #d8edf7;
+  --color-gris-medio-claro: #8fb0be;
+
+  --color-verde-fosforecente: #00fd87;
+  --color-azul-claro: #00c8fb;
+  --color-rojo: #f92837;
+  --color-rosa-fosforecente: #ef4ce9; /* CORREGIDO */
+  --color-naranja: #f7823e;
+
+  --color-tarjeta: #071726;
+  --color-borde: rgba(255,255,255,0.04);
+  --color-superficie: #0b1d28;
+
+  --radio-pequeno: 6px;
+  --radio-mediano: 12px;
+  --radio-grande: 16px;
+  --radio-pastilla: 999px;
+
+  --sombra-verde: 0 6px 18px rgba(0,253,135,0.06);
+  --sombra-panel: 0 10px 40px rgba(0,0,0,0.6);
+
+  --transicion-rapida: 150ms ease;
+  --transicion-normal: 220ms ease;
+}
