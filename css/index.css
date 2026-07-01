@@ -1,4 +1,4 @@
-@import url('./compartido.css');
+@import url('./Compartido.css');
 
 /* ===== CONTENIDO PRINCIPAL ===== */
 
@@ -431,7 +431,7 @@
 
 .tarjeta-modulo__enlace--verde   { color: var(--color-verde-fosforecente); }
 .tarjeta-modulo__enlace--cyan    { color: var(--color-azul-claro); }
-.tarjeta-modulo__enlace--rosa    { color: var(--color-rosa-fosforecente); }
+.tarjeta-modulo__enlace--rosa    { color: var(--color-roza-fosforecente); }
 .tarjeta-modulo__enlace--naranja { color: var(--color-naranja); }
 .tarjeta-modulo__enlace--rojo    { color: var(--color-rojo); }
 

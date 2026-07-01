@@ -1,6 +1,10 @@
-/* js/index.js — Comportamiento de la página de inicio (corregido, null-safe) */
+/* ===================================================
+   INICIO.JS — Comportamiento de la página de inicio
+   =================================================== */
 
-const LINES = [
+/* ===== CONSTANTES ===== */
+
+const LINEAS_TERMINAL = [
   "$ ghost-net --init",
   "Conectando a red segura...",
   "Analizando vulnerabilidades...",
@@ -8,74 +12,84 @@ const LINES = [
   "Sistema listo. Bienvenido.",
 ];
 
-const TYPE_SPEED = 38;   // ms per char
-const PAUSE_BETWEEN_LINES = 220; // ms between lines
+const VELOCIDAD_ESCRITURA = 38;   /* milisegundos por carácter */
+const PAUSA_ENTRE_LINEAS  = 220;  /* milisegundos entre líneas */
 
-let textoTerminalEl = null;
-let cursorTerminalEl = null;
-let estadisticasTerminalEl = null;
+/* ===== REFERENCIAS AL DOM ===== */
 
-let rowIndex = 0;
-let charIndex = 0;
-let accumulatedText = "";
+const elementoTextoTerminal       = document.getElementById("texto-terminal");
+const elementoCursorTerminal      = document.getElementById("cursor-terminal");
+const elementoEstadisticasTerminal = document.getElementById("estadisticas-terminal");
 
-function writeTerminal() {
-  if (!textoTerminalEl || !cursorTerminalEl || !estadisticasTerminalEl) return;
+/* ===== ESTADO INTERNO ===== */
 
-  if (rowIndex >= LINES.length) {
-    cursorTerminalEl.style.display = "none";
-    estadisticasTerminalEl.style.display = "block";
+let indiceFila     = 0;
+let indiceCaracter = 0;
+let textoAcumulado = "";
+
+/* ===== ANIMACIÓN DE TERMINAL ===== */
+
+/**
+ * Escribe el texto de la terminal carácter a carácter.
+ * Cuando termina todas las líneas, oculta el cursor y
+ * muestra el panel de estadísticas.
+ */
+function escribirTerminal() {
+  /* Todas las líneas completadas */
+  if (indiceFila >= LINEAS_TERMINAL.length) {
+    elementoCursorTerminal.style.display      = "none";
+    elementoEstadisticasTerminal.style.display = "block";
     return;
   }
 
-  const currentLine = LINES[rowIndex];
+  const lineaActual = LINEAS_TERMINAL[indiceFila];
 
-  if (charIndex < currentLine.length) {
-    accumulatedText += currentLine[charIndex];
-    textoTerminalEl.textContent = accumulatedText;
-    charIndex++;
-    setTimeout(writeTerminal, TYPE_SPEED);
+  /* Aún hay caracteres en la línea actual */
+  if (indiceCaracter < lineaActual.length) {
+    textoAcumulado += lineaActual[indiceCaracter];
+    elementoTextoTerminal.textContent = textoAcumulado;
+    indiceCaracter++;
+    setTimeout(escribirTerminal, VELOCIDAD_ESCRITURA);
+
+  /* Línea terminada — pasar a la siguiente */
   } else {
-    accumulatedText += "\n";
-    textoTerminalEl.textContent = accumulatedText;
-    rowIndex++;
-    charIndex = 0;
-    setTimeout(writeTerminal, PAUSE_BETWEEN_LINES);
+    textoAcumulado += "\n";
+    elementoTextoTerminal.textContent = textoAcumulado;
+    indiceFila++;
+    indiceCaracter = 0;
+    setTimeout(escribirTerminal, PAUSA_ENTRE_LINEAS);
   }
 }
 
-function initModuleCardHover() {
-  const cards = document.querySelectorAll(".tarjeta-modulo");
-  if (!cards) return;
-  cards.forEach((card) => {
-    card.addEventListener("mouseenter", () => card.classList.add("tarjeta-modulo--elevada"));
-    card.addEventListener("mouseleave", () => card.classList.remove("tarjeta-modulo--elevada"));
+/* ===== EFECTO HOVER EN TARJETAS DE MÓDULO ===== */
+
+/**
+ * Aplica efecto de elevación visual a cada tarjeta
+ * de módulo al pasar el cursor.
+ */
+function inicializarHoverTarjetas() {
+  const tarjetas = document.querySelectorAll(".tarjeta-modulo");
+
+  tarjetas.forEach(function(tarjeta) {
+    tarjeta.addEventListener("mouseenter", function() {
+      tarjeta.classList.add("tarjeta-modulo--elevada");
+    });
+
+    tarjeta.addEventListener("mouseleave", function() {
+      tarjeta.classList.remove("tarjeta-modulo--elevada");
+    });
   });
 }
 
-function initialize() {
-  textoTerminalEl = document.getElementById("texto-terminal");
-  cursorTerminalEl = document.getElementById("cursor-terminal");
-  estadisticasTerminalEl = document.getElementById("estadisticas-terminal");
+ //INICIALIZACIÓN 
 
-  if (textoTerminalEl && cursorTerminalEl && estadisticasTerminalEl) {
-    writeTerminal();
-  } else {
-    if (cursorTerminalEl) cursorTerminalEl.style.display = "none";
-  }
 
-  initModuleCardHover();
-
-  // accessible submenu toggle
-  const toggle = document.querySelector('.menu-desplegable__toggle');
-  const submenu = document.getElementById('submenu-herramientas');
-  if (toggle && submenu) {
-    toggle.addEventListener('click', function () {
-      const expanded = this.getAttribute('aria-expanded') === 'true';
-      this.setAttribute('aria-expanded', String(!expanded));
-      submenu.setAttribute('aria-hidden', String(expanded));
-    });
-  }
+ //Punto de entrada principal.
+ //Se ejecuta cuando el DOM está completamente cargado.
+ 
+function inicializar() {
+  escribirTerminal();
+  inicializarHoverTarjetas();
 }
 
-document.addEventListener("DOMContentLoaded", initialize);
+document.addEventListener("DOMContentLoaded", inicializar);
